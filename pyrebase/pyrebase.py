@@ -23,10 +23,10 @@ import python_jwt as jwt
 from Crypto.PublicKey import RSA
 import datetime
 
-
-def initialize_app(config):
+def initialize_app(config_path):
+    with open(config_path) as config_file:
+        config = json.load(config_file)
     return Firebase(config)
-
 
 class Firebase:
     """ Firebase Interface """
